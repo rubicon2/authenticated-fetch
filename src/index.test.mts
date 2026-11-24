@@ -32,9 +32,13 @@ describe("authenticatedFetch", () => {
   ])(
     "given a requestCallback that resolves to a response with $testType",
     ({ requestCallbackResponse }) => {
-      it("invokes requestCallback once", async () => {
+      it("invokes requestCallback once, with credentialsRef as an argument", async () => {
         const requestCallback = vi.fn(async () => requestCallbackResponse);
         const authenticationCallback = vi.fn(async () => new Response());
+
+        const credentialsRef = {
+          current: null,
+        };
 
         await authenticatedFetch(
           { current: null },
@@ -43,6 +47,7 @@ describe("authenticatedFetch", () => {
         );
 
         expect(requestCallback).toHaveBeenCalledTimes(1);
+        expect(requestCallback).toHaveBeenCalledWith(credentialsRef);
       });
 
       it("does not invoke the authenticationCallback", async () => {
