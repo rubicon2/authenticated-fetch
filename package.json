@@ -1,0 +1,35 @@
+{
+  "name": "authenticated-fetch",
+  "version": "1.0.0",
+  "description": "Automate the fetching of fresh credentials and retrying responses upon receiving a response with an unauthenticated 401 status code",
+  "type": "module",
+  "exports": {
+    "types": "./dist/index.d.mts",
+    "default": "./dist/index.mjs"
+  },
+  "scripts": {
+    "build": "pnpm run clean && pnpm tsc",
+    "build:watch": "pnpm run clean && pnpm tsc --watch",
+    "clean": "rm -rf dist/*",
+    "lint": "pnpm biome check",
+    "lint:fix": "pnpm biome check --write",
+    "test": "pnpm vitest run",
+    "test:watch": "pnpm vitest",
+    "prepare": "pnpm lint:fix && pnpm build",
+    "prepublishOnly": "pnpm run test"
+  },
+  "keywords": [
+    "fetch",
+    "authentication",
+    "token",
+    "access token"
+  ],
+  "author": "rubicon2",
+  "license": "MIT",
+  "packageManager": "pnpm@10.30.3",
+  "devDependencies": {
+    "@biomejs/biome": "2.6.8",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}

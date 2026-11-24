@@ -1,0 +1,17 @@
+{
+  "$schema": "https://www.schemastore.org/tsconfig",
+  "include": ["src/*.mts"],
+  "exclude": ["src/*.spec.mts", "src/*.test.mts"],
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    "module": "node18",
+    "target": "es2020",
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "declaration": true,
+    "sourceMap": true,
+    "declarationMap": true,
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}
